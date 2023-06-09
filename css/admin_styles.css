@@ -35,11 +35,37 @@
     margin-top: 60px;
     margin-left: 200px;
     padding: 1px 16px;
-    height: 1000px;
+    /* height: 1000px; */
+    display: flex;
+    /* display: flexbox; */
   }
   .navbar-nav{
     display:none;
   }
+  .product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 30%;
+    text-align: center;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.product-card p {
+    margin: 0;
+}
+
+.product-card form {
+    display: inline;
+    margin-top: 10px;
+}
+
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
   @media screen and (max-width: 700px) {
     .sidebar {

@@ -83,20 +83,23 @@
    color: red;
 
 }
-
+.my-listings .heading{
+   font-family: "Times New Roman", Times, serif;
+}
 .my-listings .box-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, 35rem);
+  grid-template-columns: repeat(auto-fit, 25rem);
   gap: 2rem;
   justify-content: center;
   align-items: flex-start;
 }
 
 .my-listings .box-container .box{
-  background-color: var(--white);
-  box-shadow: var(--box-shodow);
-  padding: 2rem;
-  overflow-x: hidden;
+   text-align: justify;
+   background-color: #ddd;
+   padding: 2rem;
+   overflow-x: hidden;
+   font-family: "Times New Roman", Times, serif;
 }
 
 .my-listings .box-container .box .thumb{

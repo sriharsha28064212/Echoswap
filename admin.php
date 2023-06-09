@@ -25,13 +25,15 @@
           // Accept Button
           echo "<form action='approve_product.php' method='POST'>";
           echo "<input type='hidden' name='product_id' value='" . $row['pid'] . "'>";
-          echo "<input type='submit' name='approve' value='Accept'>";
+          echo "<button class='btn btn-dark' type='submit' name='approve'>Accept</button> ";
+          //echo "<input type='submit' name='approve' value='Accept'>";
           echo "</form>";
           
           // Deny Button
           echo "<form action='deny_product.php' method='POST'>";
           echo "<input type='hidden' name='product_id' value='" . $row['pid'] . "'>";
-          echo "<input type='submit' name='deny' value='Deny'>";
+          echo "<button class='btn btn-dark' type='submit'name='deny'>Deny</button> ";
+          //echo "<input type='submit' name='deny' value='Deny'>";
           echo "</form>";
           
           echo "</div>";
