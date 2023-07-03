@@ -1,10 +1,10 @@
 <?php
 include 'config.php';
 
-if (isset($_COOKIE['user_id'])) {
-    $user_id = $_COOKIE['user_id'];
+if (isset($_COOKIE['admin_id'])) {
+    $admin_id = $_COOKIE['admin_id'];
 } else {
-    $user_id = '';
+    $admin_id = '';
 }
 
 if (isset($_POST['lsubmit'])) {
@@ -13,12 +13,12 @@ if (isset($_POST['lsubmit'])) {
     $email = filter_var($email, FILTER_SANITIZE_STRING);
     $pass = sha1($_POST['pass']);
     $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-    $select_users = "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass' LIMIT 1";
+    $select_users = "SELECT * FROM `admin` WHERE email = '$email' AND password = '$pass' LIMIT 1";
     $select_users = mysqli_query($conn, $select_users);
     $row = mysqli_fetch_assoc($select_users);
 
     if (mysqli_num_rows($select_users) > 0) {
-        setcookie('user_id', $row['id'], time() + 60 * 60 * 24 * 30, '/');
+        setcookie('admin_id', $row['id'], time() + 60 * 60 * 24 * 30, '/');
         echo '<script>
             window.onload = function() {
                 Swal.fire({
@@ -28,7 +28,7 @@ if (isset($_POST['lsubmit'])) {
                     showConfirmButton: false,
                     timer: 1500,
                     didClose: () => {
-                        window.location.href = "shop_main.php";
+                        window.location.href = "admin.php";
                     }
                 });
             };
@@ -63,7 +63,8 @@ if (isset($_POST['lsubmit'])) {
         <div class="row">
             <div class="col-md-6">
                 <div class="left-div">
-                    <h1 class="title main_heading">EchoSwap.</h1>
+                    <h1 class="title main_heading">EchoSwap <p style="color: gray; ">Admin.</p>
+                    </h1>
                 </div>
             </div>
             <div class="col-md-6">
@@ -79,7 +80,7 @@ if (isset($_POST['lsubmit'])) {
                         <input type="password" class="form-control" id="exampleInputPassword1" name="pass" required>
                     </div>
                     <button type="submit" class="btn btn-dark" name="lsubmit">Submit</button>
-                    <p class="register-link">Don't have an account? <a href="register.php">Register</a></p>
+                    <p class="register-link">Don't have an account? <a href="admin_register.php">Register</a></p>
                 </form>
             </div>
         </div>

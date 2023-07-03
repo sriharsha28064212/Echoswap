@@ -1,10 +1,10 @@
 <?php
 include 'config.php';
 
-if (isset($_COOKIE['user_id'])) {
-    $user_id = $_COOKIE['user_id'];
+if (isset($_COOKIE['admin_id'])) {
+    $admin_id = $_COOKIE['admin_id'];
 } else {
-    $user_id = '';
+    $admin_id = '';
 }
 
 if (isset($_POST['rsubmit'])) {
@@ -13,7 +13,6 @@ if (isset($_POST['rsubmit'])) {
     $name = $_POST['name'];
     $name = filter_var($name, FILTER_SANITIZE_STRING);
     $number = $_POST['number'];
-    $number = filter_var($number, FILTER_SANITIZE_STRING);
     $email = $_POST['email'];
     $email = filter_var($email, FILTER_SANITIZE_STRING);
     $pass = sha1($_POST['pass']);
@@ -21,7 +20,7 @@ if (isset($_POST['rsubmit'])) {
     $c_pass = sha1($_POST['c_pass']);
     $c_pass = filter_var($c_pass, FILTER_SANITIZE_STRING);
 
-    $sql = "SELECT * FROM users WHERE Email='$email' LIMIT 1";
+    $sql = "SELECT * FROM `admin` WHERE Email='$email' LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -38,16 +37,16 @@ if (isset($_POST['rsubmit'])) {
                 };
             </script>';
         } else {
-            $insert_user = "INSERT INTO `users`(id, name, number, email, password) VALUES('$id', '$name', '$number', '$email', '$c_pass')";
+            $insert_user = "INSERT INTO `admin`(id, name, number, email, password) VALUES('$id', '$name', '$number', '$email', '$c_pass')";
             $insert_user = mysqli_query($conn, $insert_user);
 
             if ($insert_user) {
-                $verify_users = "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass' LIMIT 1";
+                $verify_users = "SELECT * FROM `admin` WHERE email = '$email' AND password = '$pass' LIMIT 1";
                 $verify_users = mysqli_query($conn, $verify_users);
                 $row = mysqli_fetch_assoc($verify_users);
 
                 if (mysqli_num_rows($verify_users) > 0) {
-                    setcookie('user_id', $row['id'], time() + 60 * 60 * 24 * 30, '/');
+                    setcookie('admin_id', $row['id'], time() + 60 * 60 * 24 * 30, '/');
                     echo '<script>
                         window.onload = function() {
                             Swal.fire({
@@ -57,7 +56,7 @@ if (isset($_POST['rsubmit'])) {
                                 showConfirmButton: false,
                                 timer: 1500,
                                 didClose: () => {
-                                    window.location.href = "shop_main.php";
+                                    window.location.href = "admin.php";
                                 }
                             });
                         };
@@ -96,7 +95,8 @@ if (isset($_POST['rsubmit'])) {
         <div class="row">
             <div class="col-md-6">
                 <div class="left-div">
-                    <h1 class="title main_heading">EchoSwap.</h1>
+                    <h1 class="title main_heading">EchoSwap<p style="color: gray; ">Admin.</p>
+                    </h1>
                 </div>
             </div>
             <div class="col-md-6">

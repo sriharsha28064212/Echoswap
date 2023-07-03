@@ -1,6 +1,6 @@
 <?php
 session_start();
-$server = 'localhost:3341';
+$server = 'localhost:3342';
 $database = 'echoswap';
 $errors = array();
 $name = "";
@@ -21,4 +21,3 @@ function create_unique_id(){
 
 
 ?>
-

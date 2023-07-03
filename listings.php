@@ -8,17 +8,16 @@ if (isset($_COOKIE['user_id'])) {
     $user_id = '';
     header('location:login.php');
 }
-
 if (isset($_POST['delete'])) {
 
     $delete_id = $_POST['products_id'];
     $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
 
-    $verify_delete = "SELECT * FROM `products` WHERE id = '$delete_id'";
+    $verify_delete = "SELECT * FROM `products` WHERE pid = '$delete_id'";
     $verify_delete = mysqli_query($conn, $verify_delete);
 
     if (mysqli_num_rows($verify_delete) > 0) {
-        $select_images = "SELECT * FROM `products` WHERE id = '$delete_id'";
+        $select_images = "SELECT * FROM `products` WHERE pid = '$delete_id'";
         $select_images = mysqli_query($conn, $select_images);
         $num_images = mysqli_num_rows($select_images);
         while ($fetch_images = mysqli_fetch_assoc($select_images)) {
@@ -45,7 +44,7 @@ if (isset($_POST['delete'])) {
         // $delete_saved = mysqli_query($conn, $delete_saved);
         // $delete_requests = "DELETE FROM `requests` WHERE products_id = '$delete_id'";
         // $delete_requests = mysqli_query($conn, $delete_requests);
-        $delete_listing = "DELETE FROM `products` WHERE id = '$delete_id'";
+        $delete_listing = "DELETE FROM `products` WHERE pid = '$delete_id'";
         $delete_listing = mysqli_query($conn, $delete_listing);
         $success_msg[] = 'listing deleted successfully!';
     } else {
@@ -56,36 +55,16 @@ if (isset($_POST['delete'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my listings</title>
+<?php include 'Header.php'; ?>
+<div class="lstng-listings-main">
+    <h1 id="lstng-Categories" class="lstng-listings-header section" data-content="website-headlines">
+        My Listings
+    </h1>
+    <section class="lstng-my-listings">
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/main.css">
-
-</head>
-
-<body>
-
-    <?php include 'header.php'; ?>
-
-    <section class="my-listings">
-
-        <center>
-            <h1 class="heading">My Listings</h1>
-        </center>
-
-        <div class="box-container">
+        <div class="lstng-box-container">
 
             <?php
             $total_images = 0;
@@ -94,7 +73,7 @@ if (isset($_POST['delete'])) {
             if (mysqli_num_rows($select_products_query) > 0) {
                 while ($fetch_products = mysqli_fetch_assoc($select_products_query)) {
 
-                    $products_id = $fetch_products['id'];
+                    $products_id = $fetch_products['pid'];
 
                     if (!empty($fetch_products['image_02'])) {
                         $image_coutn_02 = 1;
@@ -120,51 +99,74 @@ if (isset($_POST['delete'])) {
                     $total_images = (1 + $image_coutn_02 + $image_coutn_03 + $image_coutn_04 + $image_coutn_05);
 
                     ?>
-            <form accept="" method="POST" class="box">
-                <input type="hidden" name="products_id" value="<?= $products_id; ?>">
-                <div class="thumb">
-                    <p><i class="far fa-image"></i><span><?= $total_images; ?></span></p>
-                    <img src="uploaded_files/<?= $fetch_products['image_01']; ?>" alt="">
-                </div>
-                <div class="price"><i class="fas fa-indian-rupee-sign"></i><span><?= $fetch_products['price']; ?></span>
-                </div>
-                <h4 class="name">
-                    <?= $fetch_products['Product_name']; ?>
-                </h4>
-                <p class="location"><i class="fas fa-map-marker-alt"></i><span><?= $fetch_products['address']; ?></span></p>
-                <div class="flex-btn">
-                    <a class="btn btn-dark" href="update_products.php?get_id=<?= $products_id; ?>"
-                        class="btn">update</a>
-                    <input type="submit" name="delete" value="delete" class="btn btn-dark"
-                        onclick="return confirm('delete this listing?');">
-                </div>
-                <a class="btn btn-dark" href="view_products.php?get_id=<?= $products_id; ?>" class="btn">view
-                    products</a>
-            </form>
-            <?php
+                    <form accept="" method="POST" class="lstng-box">
+                        <input type="hidden" name="products_id" value="<?= $products_id; ?>">
+                        <div class="lstng-top-section">
+                            <h4 class="lstng-name">
+                                <?= $fetch_products['Product_name']; ?>
+                            </h4>
+                            <div class="lstng-price">
+                                <i class="fas fa-indian-rupee-sign"></i><span>
+                                    <?= $fetch_products['price']; ?>
+                                </span>
+                            </div>
+
+                            <p class="lstng-location"><i class="fas fa-map-marker-alt"></i><span>
+                                    <?= $fetch_products['address']; ?>
+                                </span></p>
+                        </div>
+                        <div class="lstng-thumb">
+                            <p><i class="far fa-image"></i><span>
+                                    <?= $total_images; ?>
+                                </span></p>
+                            <img src="uploaded_files/<?= $fetch_products['image_01']; ?>" alt="">
+                        </div>
+                        <div class="lstng-bottom-section">
+                            <div class="lstng-flex-btn">
+                                <a href="update_products.php?pid=<?= $products_id; ?>" class="btn btn-dark">Update</a>
+                                <div class="lstng-btn-spacer"></div> <!-- Add a spacer element -->
+                                <input type="submit" name="delete" value="Delete" class="btn btn-dark"
+                                    onclick="return confirm('delete this listing?');">
+                            </div>
+                            <div class="lstng-view-btn">
+                                <!-- Use a separate container for the View Products button -->
+                                <a class="btn btn-dark" href="view_products.php?get_id=<?= $products_id; ?>">View
+                                    product Details</a>
+                            </div>
+                        </div>
+                    </form>
+                    <?php
                 }
             } else {
-                echo '<p class="empty">no products added yet! <a href="post.php" style="margin-top:1.5rem;" class="btn">add new</a></p>';
+                echo '<p style="text-align: center;">
+  <span style="display: block; margin-bottom: 1.5rem;">No products added yet!</span>
+  <a href="post.php" style="display: inline-block; padding: 0.5rem 1rem; background-color: black; color: white; text-decoration: none; border-radius: 4px;">Add New</a>
+</p>
+';
             }
             ?>
 
         </div>
-
-    </section>
-
+</div>
 
 
 
 
+</section>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+
+
+<?php include 'Footer.php'; ?>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
 
 </body>
