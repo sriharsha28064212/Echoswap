@@ -3,20 +3,24 @@ html {
   height: auto;
   overflow-x: hidden;
 }
+
 .heading {
   font-size: 30px;
   font-weight: bold;
   margin-left: 10px;
   color: black;
 }
+
 .links {
   font-size: medium;
   color: #232323;
   text-decoration: none;
 }
+
 .links:hover {
   color: rgb(0, 0, 0);
 }
+
 #carouselExampleFade {
   width: 80%;
   align-items: center;
@@ -26,6 +30,7 @@ html {
 .Table1 {
   margin-left: 90px;
 }
+
 #Categories {
   margin-bottom: 2rem;
   font-size: 1.875rem;
@@ -37,10 +42,12 @@ html {
     line-height: 2.5rem;
   }
 }
-.div1{
+
+.div1 {
   text-align: center;
   height: 315px;
 }
+
 .div1 button {
   color: white;
   background-color: black;
@@ -48,17 +55,20 @@ html {
   margin-right: auto;
   margin-bottom: 30px;
 }
+
 .div1 p {
   width: 80%;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .div1 img {
   margin-bottom: 8px;
   margin-left: auto;
   margin-right: auto;
 }
+
 /* search bar */
 .search-main {
   display: flex;
@@ -118,6 +128,7 @@ nav a:hover {
 nav a.active {
   border-bottom: 3px solid black !important;
 }
+
 /* 
 .sticky {
   position: fixed;
@@ -201,6 +212,14 @@ nav a.active {
   margin-left: 10px;
 }
 
+.mobile {
+  display: none;
+}
+
+.navbar-container h3 {
+  display: none;
+}
+
 /* Section-1 */
 
 .front-page {
@@ -215,9 +234,11 @@ nav a.active {
   @media (min-width: 640px) {
     max-width: 36rem;
   }
+
   @media (min-width: 768px) {
     max-width: 100%;
   }
+
   @media (min-width: 1024px) {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -255,19 +276,23 @@ nav a.active {
     padding-right: 1.25rem;
     max-width: 28rem;
   }
+
   @media (min-width: 768px) {
     padding-bottom: 0;
     margin-top: 1rem;
   }
+
   @media (min-width: 1024px) {
     padding-right: 0;
     margin-top: 2rem;
     max-width: 32rem;
   }
+
   @media (min-width: 1280px) {
     margin-top: 2.25rem;
   }
 }
+
 .front-headline {
   color: #000000;
   font-size: 2.25rem;
@@ -356,11 +381,13 @@ nav a.active {
   @media (min-width: 640px) {
     max-width: 36rem;
   }
+
   @media (min-width: 768px) {
     padding-left: 6rem;
     padding-right: 6rem;
     max-width: 100%;
   }
+
   @media (min-width: 1024px) {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -378,6 +405,7 @@ nav a.active {
   @media (min-width: 768px) {
     margin-bottom: 2.5rem;
   }
+
   @media (min-width: 1024px) {
     flex-direction: row;
   }
@@ -435,6 +463,7 @@ nav a.active {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
 .f-card {
   max-width: 28rem;
 }
@@ -497,11 +526,13 @@ nav a.active {
   @media (min-width: 640px) {
     max-width: 36rem;
   }
+
   @media (min-width: 768px) {
     padding-left: 6rem;
     padding-right: 6rem;
     max-width: 100%;
   }
+
   @media (min-width: 1024px) {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -510,6 +541,7 @@ nav a.active {
     max-width: 1280px;
   }
 }
+
 .cat-header {
   margin-bottom: 1.5rem;
   color: #111827;
@@ -531,12 +563,16 @@ nav a.active {
     max-width: 32rem;
   }
 }
+.Table2{
+  display: none;
+}
 
 /* Freq asked Questions */
 
 #accordion {
   margin: 50px auto;
-  width: 1100px;
+  max-width: 1100px;
+  width: 100%;
 }
 
 #accordion li {
@@ -557,6 +593,7 @@ nav a.active {
   font-weight: 500;
   cursor: pointer;
   color: black;
+  word-break: break-word; /* Added word-break property to allow text wrapping */
 }
 
 #accordion li label span {
@@ -565,32 +602,33 @@ nav a.active {
   color: #333;
 }
 
-#accordion label + input[type="checkbox"] {
+#accordion label+input[type="checkbox"] {
   display: none;
 }
 
 #accordion .faq-con-tent {
-  padding: 0 10;
+  padding: 0 10px; /* Added px unit for padding */
   line-height: 26px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
 }
 
-#accordion label + input[type="checkbox"]:checked + .faq-con-tent {
+#accordion label+input[type="checkbox"]:checked+.faq-con-tent {
   max-height: 400px;
 }
+
 ul#accordion .faq-con-tent {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
 }
 
-ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent {
+ul#accordion input[type="checkbox"]:checked+label+.faq-con-tent {
   max-height: 400px;
 }
 
-ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
+ul#accordion input[type="checkbox"]:checked+label+.faq-con-tent p {
   margin: 0;
   padding: 0;
 }
@@ -606,7 +644,7 @@ ul#accordion input[type="checkbox"] {
   transition: transform 0.2s;
 }
 
-ul#accordion input[type="checkbox"]:checked + label .toggle-icon {
+ul#accordion input[type="checkbox"]:checked+label .toggle-icon {
   transform: rotate(45deg);
 }
 
@@ -616,11 +654,11 @@ ul#accordion .faq-con-tent {
   transition: max-height 0.5s;
 }
 
-ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent {
+ul#accordion input[type="checkbox"]:checked+label+.faq-con-tent {
   max-height: 400px;
 }
 
-ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
+ul#accordion input[type="checkbox"]:checked+label+.faq-con-tent p {
   margin: 0;
   padding: 0;
 }
@@ -630,35 +668,22 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   padding-right: 1rem;
   margin-left: auto;
   margin-right: auto;
-
-  @media (min-width: 768px) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
 }
+
 .faq-main {
   padding-left: 2rem;
   padding-right: 2rem;
   margin-left: auto;
   margin-right: auto;
   max-width: 72rem;
-
-  @media (min-width: 1024px) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
 }
+
 .faq-header {
   margin-bottom: 1rem;
   color: #111827;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 700;
-
-  @media (min-width: 768px) {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
 }
 
 .faq-all {
@@ -680,8 +705,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
 
 .faq-svg {
   margin-left: 1rem;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   flex: none;
   width: 1rem;
   height: 1rem;
@@ -693,10 +717,6 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   color: #374151;
   font-size: 0.875rem;
   line-height: 1.25rem;
-
-  @media (min-width: 768px) {
-    padding-right: 10rem;
-  }
 }
 
 .faq-qna {
@@ -767,6 +787,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     width: 50%;
   }
 }
+
 .about-img {
   width: 100%;
   border-radius: 1rem;
@@ -807,10 +828,12 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     width: 50%;
   }
 }
+
 .unsplash-link {
   color: #ffffff;
   text-decoration: underline;
 }
+
 .aboutus-content {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -819,10 +842,12 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   @media (min-width: 1024px) {
     width: 50%;
   }
+
   @media (min-width: 1280px) {
     width: 41.666667%;
   }
 }
+
 .about-main-heading {
   display: block;
   margin-bottom: 0.5rem;
@@ -832,6 +857,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   font-weight: 600;
   text-transform: uppercase;
 }
+
 .about-heading {
   margin-bottom: 2rem;
   font-size: 1.875rem;
@@ -843,12 +869,14 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     line-height: 2.5rem;
   }
 }
+
 .about-content {
   margin-bottom: 2rem;
   color: #4b5563;
   font-size: 1rem;
   line-height: 1.5rem;
 }
+
 .about-link {
   display: inline-flex;
   padding-top: 0.75rem;
@@ -870,6 +898,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     text-decoration: none;
   }
 }
+
 /* resources */
 .res-main {
   padding-left: 1rem;
@@ -879,14 +908,17 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   margin-left: auto;
   margin-right: auto;
   z-index: -1;
+
   @media (min-width: 640px) {
     max-width: 36rem;
   }
+
   @media (min-width: 768px) {
     padding-left: 6rem;
     padding-right: 6rem;
     max-width: 100%;
   }
+
   @media (min-width: 1024px) {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -894,11 +926,19 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     padding-bottom: 5rem;
     max-width: 1280px;
   }
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 100%;
+  }
 }
+
 
 .carousel {
   z-index: 0;
 }
+
 .res-heading {
   margin-bottom: 2rem;
   font-size: 1.875rem;
@@ -910,6 +950,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     line-height: 2.5rem;
   }
 }
+
 /* footer */
 
 .footer-main {
@@ -924,6 +965,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     padding-right: 1.5rem;
   }
 }
+
 .footer-links {
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
@@ -940,9 +982,11 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   @media (min-width: 640px) {
     grid-column: span 6 / span 6;
   }
+
   @media (min-width: 768px) {
     grid-column: span 3 / span 3;
   }
+
   @media (min-width: 1024px) {
     grid-column: span 2 / span 2;
   }
@@ -965,9 +1009,11 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   @media (min-width: 640px) {
     grid-column: span 6 / span 6;
   }
+
   @media (min-width: 768px) {
     grid-column: span 3 / span 3;
   }
+
   @media (min-width: 1024px) {
     grid-column: span 3 / span 3;
   }
@@ -1016,11 +1062,13 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     color: #111827;
   }
 }
+
 .footer-email {
   display: flex;
   margin-bottom: 1rem;
   flex-wrap: wrap;
 }
+
 .footer-echo {
   color: black;
   font-size: 1.25rem;
@@ -1041,6 +1089,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   @media (min-width: 640px) {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
+
   @media (min-width: 768px) {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -1056,6 +1105,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     grid-column: span 3 / span 3;
   }
 }
+
 .footer-echo-link {
   display: flex;
   color: #111827;
@@ -1067,6 +1117,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
     width: auto;
   }
 }
+
 .email-label {
   display: block;
   font-size: 0.875rem;
@@ -1124,6 +1175,7 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+
 .email-span {
   position: absolute;
   top: 0;
@@ -1137,28 +1189,217 @@ ul#accordion input[type="checkbox"]:checked + label + .faq-con-tent p {
   background-color: #d1d5db;
   width: 1px;
 }
+
 #description {
   height: 80px;
   color: black;
   width: 280px;
 }
+
 .media-svg {
   width: 2rem;
   height: 2rem;
   fill: currentColor;
 }
+
 .copywrite {
   margin-right: 1rem;
   color: #4b5563;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+
 #Footer {
   background-color: rgb(59, 58, 58);
   color: rgb(255, 255, 255);
 }
+
 #email {
   height: 30px;
   width: 250px;
   border-radius: 4px;
+}
+
+
+@media screen and (max-width:768px) {
+  body,html {
+    overflow-x: hidden;
+  }
+  #fix{
+    position: sticky;
+    z-index: 1;
+  }
+  .nav-click {
+    display: none;
+  }
+  .mobile {
+    display: flex;
+    position: fixed;
+    right: 10px;
+    top: 15px;
+  }
+
+  .navbar-container h1 {
+    display: none;
+  }
+
+  .navbar-container h3 {
+    display: flex;
+    position: fixed;
+    left: 10px;
+    top: 6px;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #374151;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .slide-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    bottom: 0;
+    background-color: #ffffff;
+    width: 300px;
+    z-index: 998;
+    padding: 2rem;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .slide-menu nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-menu nav a {
+    margin-bottom: 1rem;
+    color: #374151;
+  }
+
+  .front-page {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .front-main {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .front-wrap {
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .front-sub {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .front-section {
+    padding-right: 0;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .front-headline {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .front-subhead {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .front-button {
+    margin-top: 1rem;
+    width: 40%;
+  }
+  .button-des {
+    display: inline-flex;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+  
+    :hover {
+      background-color: #000000;
+      text-decoration: none;
+    }
+  }
+
+  .front-image {
+    width: 100%;
+    margin-top: 1rem;
+    order: -1;
+    /* Moves the image to the top */
+  }
+
+  .front-image-container {
+    border-radius: 0.375rem;
+  }
+
+  .front-image-edit {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.375rem;
+  }
+
+  /* categories */
+  .Table1{
+    display: none;
+  }
+  .Table2{
+    display: flex;
+  }
+  /* faq */
+  .faq-con-tent {
+    /* Set a maximum width for the content to prevent it from stretching too wide */
+    max-width: 100%;
+    /* Add word-wrap property to wrap the long texts within the content */
+    word-wrap: break-word;
+  }
+
+  /* Hide the toggle icon (+) on mobile devices */
+  .toggle-icon {
+    display: none;
+  }
+  .carousel-inner,.carousel-control-prev{
+    margin-left: -95px;
+  }
+  .carousel-control-next{
+    margin-left: -205px;
+  }
 }

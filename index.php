@@ -12,6 +12,7 @@ if (isset($_COOKIE['user_id'])) {
 <html>
 
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://cdn.tailwindcss.com/"></script>
 
     <link rel="stylesheet" href="css/styles.css" />
@@ -26,6 +27,7 @@ if (isset($_COOKIE['user_id'])) {
         <div class="navbar">
             <div class="navbar-container">
                 <h1><a href="index.php" class="Heading">EchoSwap.</a></h1>
+                <h3><a href="index.php" class="Heading">EchoSwap.</a></h3>
 
                 <div class="nav-click">
                     <nav class="nav-links">
@@ -47,8 +49,7 @@ if (isset($_COOKIE['user_id'])) {
                                 <a class="dropdown-item" href="profile.php">Profile</a>
                                 <a href="update.php" class="dropdown-item">Update profile</a>
                                 <a href="listings.php" class="dropdown-item">My Listings</a>
-                                <a href="logout.php" class="dropdown-item"
-                                    onclick="confirm('Confirm Logout')">Logout</a>
+                                <a href="logout.php" class="dropdown-item" onclick="confirm('Confirm Logout')">Logout</a>
                             <?php } else { ?>
                                 <div class="nav-buttons">
                                     <a href="login.php" type="button" class="button-nav btn btn-outline-dark">
@@ -62,10 +63,54 @@ if (isset($_COOKIE['user_id'])) {
                         </div>
                     </div>
                 </div>
+                <div class="mobile">
+                    <div class="slide-menu">
+                        <nav>
+                            <a href="#front-page" class="links clicked">Home</a>
+                            <a href="#features" class="links clicked">Features</a>
+                            <a href="#Categories" class="links clicked">Categories</a>
+                            <a href="#faq" class="links clicked">Faq</a>
+                            <a href="#about-us" class="links clicked">About Us</a>
+                            <a href="#Resources" class="links clicked">Resources</a>
+                            <a href="#cont-us" class="links clicked">Contact us</a>
+                            <?php if ($user_id != '') { ?>
+                                <div class="dropdown account">
+                                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        Account
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="profile.php"  >Profile</a>
+                                        <a href="update.php" class="dropdown-item" >Update profile</a>
+                                        <a href="listings.php" class="dropdown-item" >My Listings</a>
+                                        <a href="logout.php" class="dropdown-item"
+                                            onclick="confirm('Confirm Logout')">Logout</a>
+                                    <?php } else { ?>
+                                        <div class="nav-buttons">
+                                            <a href="login.php" type="button" class="button-nav btn btn-outline-dark" >
+                                                Sign in
+                                            </a>
+                                            <a href="register.php" type="button" class="button-nav btn btn-outline-dark" >
+                                                Sign up
+                                            </a>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <!-- <a href="login.php" class="links clicked">Sign in</a>
+                            <a href="register.php" class="links clicked">Sign up</a> -->
+                        </nav>
+                    </div>
+                    <div class="hamburger-menu">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-        <!-- front page -->
+    <!-- front page -->
     <div class="back-ground front-page section" id="front-page">
         <div class="front-main">
             <div class="front-wrap">
@@ -189,9 +234,11 @@ if (isset($_COOKIE['user_id'])) {
 
     <!-- categories -->
     <div class="cat-main">
-       <center> <h1 id="Categories" class="cat-header section" data-content="website-headlines">
-            Categories
-        </h1></center>
+        <center>
+            <h1 id="Categories" class="cat-header section" data-content="website-headlines">
+                Categories
+            </h1>
+        </center>
         <table class="Table1">
             <tr>
                 <td>
@@ -202,7 +249,8 @@ if (isset($_COOKIE['user_id'])) {
                             containers, eco-friendly household items, organic and fair-trade products, and other
                             sustainable goods
                         </p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=sustainableresources">Sustainable Living Resources</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=sustainableresources">Sustainable Living
+                            Resources</a>
                         <br /><br />
                     </div>
                 </td>
@@ -214,7 +262,7 @@ if (isset($_COOKIE['user_id'])) {
                             solar-powered devices, rechargeable batteries, and other
                             sustainable technology products.
                         </p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=electronics">Electronics</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=electronics">Electronics</a>
                         <br /><br />
                         <div class="vl"></div>
                     </div>
@@ -225,7 +273,7 @@ if (isset($_COOKIE['user_id'])) {
                         <p>
                             Sustainable and ethical fashion items, such as organic cotton clothing, recycled/upcycled
                             apparel, fair-trade accessories, eco-friendly shoes, and sustainable swimwear. </p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=clothing">Clothing</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=clothing">Clothing</a>
                         <br /><br />
                         <div class="vl"></div>
                     </div>
@@ -239,7 +287,7 @@ if (isset($_COOKIE['user_id'])) {
                             organic bedding, non-toxic cleaning supplies, reusable
                             kitchenware, and sustainable home decor.
                         </p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=furniture">Furniture</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=furniture">Furniture</a>
                         <br /><br />
                         <div class="vl"></div>
                     </div>
@@ -252,7 +300,7 @@ if (isset($_COOKIE['user_id'])) {
                         <p>Eco-friendly and sustainable home products, including energy-efficient appliances,
                             recycled/upcycled furniture, organic bedding, non-toxic cleaning supplies, reusable
                             kitchenware, and sustainable home decor..</p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=homeDecor">Home Decor</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=homeDecor">Home Decor</a>
                         <br /><br />
                     </div>
                 </td>
@@ -263,7 +311,8 @@ if (isset($_COOKIE['user_id'])) {
                             Natural and organic skincare products, cruelty-free cosmetics, sustainable packaging,
                             zero-waste bathroom essentials, bamboo toothbrushes, and refillable beauty products.
                         </p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=beautyproducts">Beauty and Personal care</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=beautyproducts">Beauty and Personal
+                            care</a>
                         <br /><br />
                     </div>
                 </td>
@@ -273,7 +322,7 @@ if (isset($_COOKIE['user_id'])) {
                         <p>Organic and eco-friendly clothing for children, sustainable toys made from recycled
                             materials, non-toxic baby care products, reusable diapers, and eco-friendly nursery items.
                         </p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=babyproducts">Kids and Baby</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=babyproducts">Kids and Baby</a>
                         <br /><br />
                     </div>
                 </td>
@@ -282,7 +331,8 @@ if (isset($_COOKIE['user_id'])) {
                         <img src="Images/furniture.png" style="width: 20%" />
                         <p>Eco-friendly outdoor gear, sustainable camping equipment, recycled backpacks, solar-powered
                             outdoor lighting, sustainable sports equipment, and eco-friendly travel accessories.</p>
-                        <a class="btn btn-dark" href = "shop_main.php?category=outdoor%20products">Outdoor and Recreation</a>
+                        <a class="btn btn-dark" href="shop_main.php?category=outdoor%20products">Outdoor and
+                            Recreation</a>
                         <br /><br />
                     </div>
                 </td>
@@ -291,6 +341,117 @@ if (isset($_COOKIE['user_id'])) {
                 <td colspan="4">&nbsp;</td>
             </tr>
         </table>
+    <table class="Table2">
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/taco.png" style="width: 20%" />
+                    <p>
+                        A special category dedicated to products that promote sustainable living, such as reusable
+                        containers, eco-friendly household items, organic and fair-trade products, and other
+                        sustainable goods
+                    </p>
+                    <a class="btn btn-dark" href="shop_main.php?category=sustainableresources">Sustainable Living
+                        Resources</a>
+                    <br /><br />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/responsive.png" style="width: 30%" />
+                    <p>
+                        Energy-efficient electronics, eco-friendly gadgets,
+                        solar-powered devices, rechargeable batteries, and other
+                        sustainable technology products.
+                    </p>
+                    <a class="btn btn-dark" href="shop_main.php?category=electronics">Electronics</a>
+                    <br /><br />
+                    <div class="vl"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/fashion.png" style="width: 20%" />
+                    <p>
+                        Sustainable and ethical fashion items, such as organic cotton clothing, recycled/upcycled
+                        apparel, fair-trade accessories, eco-friendly shoes, and sustainable swimwear. </p>
+                    <a class="btn btn-dark" href="shop_main.php?category=clothing">Clothing</a>
+                    <br /><br />
+                    <div class="vl"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/furniture.png" style="width: 20%" />
+                    <p>
+                        Eco-friendly and sustainable home products, including
+                        energy-efficient appliances, recycled/upcycled furniture,
+                        organic bedding, non-toxic cleaning supplies, reusable
+                        kitchenware, and sustainable home decor.
+                    </p>
+                    <a class="btn btn-dark" href="shop_main.php?category=furniture">Furniture</a>
+                    <br /><br />
+                    <div class="vl"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/taco.png" style="width: 20%" />
+                    <p>Eco-friendly and sustainable home products, including energy-efficient appliances,
+                        recycled/upcycled furniture, organic bedding, non-toxic cleaning supplies, reusable
+                        kitchenware, and sustainable home decor..</p>
+                    <a class="btn btn-dark" href="shop_main.php?category=homeDecor">Home Decor</a>
+                    <br /><br />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/responsive.png" style="width: 30%" />
+                    <p style="width: 80%">
+                        Natural and organic skincare products, cruelty-free cosmetics, sustainable packaging,
+                        zero-waste bathroom essentials, bamboo toothbrushes, and refillable beauty products.
+                    </p>
+                    <a class="btn btn-dark" href="shop_main.php?category=beautyproducts">Beauty and Personal
+                        care</a>
+                    <br /><br />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/fashion.png" style="width: 20%" />
+                    <p>Organic and eco-friendly clothing for children, sustainable toys made from recycled
+                        materials, non-toxic baby care products, reusable diapers, and eco-friendly nursery items.
+                    </p>
+                    <a class="btn btn-dark" href="shop_main.php?category=babyproducts">Kids and Baby</a>
+                    <br /><br />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="div1">
+                    <img src="Images/furniture.png" style="width: 20%" />
+                    <p>Eco-friendly outdoor gear, sustainable camping equipment, recycled backpacks, solar-powered
+                        outdoor lighting, sustainable sports equipment, and eco-friendly travel accessories.</p>
+                    <a class="btn btn-dark" href="shop_main.php?category=outdoor%20products">Outdoor and
+                        Recreation</a>
+                    <br /><br />
+                </div>
+            </td>
+        </tr>
+    </table>
     </div>
 
     <!-- Frequently asked questions -->
@@ -447,7 +608,7 @@ if (isset($_COOKIE['user_id'])) {
         <div class="res-main">
             <h1 class="res-heading section" id="Resources"><b>Resources</b></h1>
             <br />
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade resource" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="Images/1.jpg" class="d-block w-100" alt="..." />
@@ -609,8 +770,21 @@ if (isset($_COOKIE['user_id'])) {
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <script src="scripts/suggestion.js"></script>
-    <script src="scripts/nav_click.js"></script>
+    <!-- <script src="scripts/nav_click.js"></script> -->
     <script src="scripts/faq.js"></script>
+    <script>
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const slideMenu = document.querySelector('.slide-menu');
+
+        hamburgerMenu.addEventListener('click', () => {
+            slideMenu.style.right = '0';
+        });
+
+        slideMenu.addEventListener('click', () => {
+            slideMenu.style.right = '-300px';
+        });
+
+    </script>
 </body>
 
 </html>
