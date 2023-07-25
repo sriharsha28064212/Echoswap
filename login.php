@@ -49,7 +49,7 @@ if (isset($_POST['lsubmit'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
+    <title>Login</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -80,6 +80,7 @@ if (isset($_POST['lsubmit'])) {
                     </div>
                     <button type="submit" class="btn btn-dark" name="lsubmit">Submit</button>
                     <p class="register-link">Don't have an account? <a href="register.php">Register</a></p>
+                    <p class="register-link">Are you an admin? <a href="admin_login.php">Admin Login</a></p>
                 </form>
             </div>
         </div>
